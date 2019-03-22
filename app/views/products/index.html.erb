@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Product', new_product_path %>
+<h1>Products</h1>
+<input type="text" name="" id="search" placeholder="Buscar Producto" class="form-control">
+<br>
+<div class="row" id="products">
+<%= render  @products %>
+</div>
+
+ <script>
+                  $('#search').keyup(function(){
+                    $.ajax({
+                      type: "GET",
+                      url: "<%= search_products_path%>",
+                      data: {search: $('#search').val()},
+                      success: function (response) {
+
+                      }
+                });
+                  });
+                </script>
